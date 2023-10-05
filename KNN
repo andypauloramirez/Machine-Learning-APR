@@ -1,0 +1,18 @@
+%% Laboratorio de Machine Learning: Lab 01 - Knn - Andy Paulo Ramirez
+close all
+%%Leyendo datasets de prueba y entrenamiento
+entrenamiento=xlsread('knn_dataset','Programming_exercise','A3:E70002'); prueba=xlsread('knn_dataset','Programming_exercise','H3:L20002'); k=30000;
+bien=0;
+mal=0;
+for i=1:20000
+[Distancia]=pdist2(prueba(i,3:5),entrenamiento(:,3:5)); [Minimos,Indice]=mink(Distancia,k);
+si=size(Indice,2);
+Valores=zeros(1,si);
+for j=1:si Valores(1,j)=entrenamiento(Indice(j),2);
+end
+Final=mode(Valores); if Final==prueba(i,2)
+        bien=bien+1;
+else
+mal=mal+1;
+end end
+Porcentaje = ((bien)/(bien+mal))*100; display(Porcentaje)
