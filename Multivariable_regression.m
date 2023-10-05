@@ -1,4 +1,4 @@
-%% Regresion Multivariable - Por Samuel Sang y Matthews Rosario
+
 %% Importacion de la data (1ra permutacion de datos)
 clear 
 clc
